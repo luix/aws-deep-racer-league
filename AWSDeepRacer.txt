@@ -1,0 +1,100 @@
+--------------------------------------------
+      Parameters of reward functions.
+--------------------------------------------
+
+In total there are 13 parameters you can use in your reward function
+
+x and y	              The position of the vehicle on the track
+heading	              Orientation of the vehicle on the track
+waypoints	            List of waypoint coordinates
+closest_waypoints	    Index of the two closest waypoints to the vehicle
+progress	            Percentage of track completed
+steps	                Number of steps completed
+track_width	          Width of the track
+distance_from_center	Distance from track center line
+is_left_of_center	    Whether the vehicle is to the left of the center line
+all_wheels_on_track	  Is the vehicle completely within the track boundary?
+speed	                Observed speed of the vehicle
+steering_angle	       Steering angle of the front wheels
+
+
+For more information on these parameters and the values they can take, read the detailed documentation.
+
+https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html#deepracer-reward-function-signature
+
+
+
+
+--------------------------------------------
+     Where does the Reward come from?
+--------------------------------------------
+
+Reinforcement learning algorithms are geared for optimization of cumulative rewards.
+
+The model will learn which action (and then subsequent actions) will result in the highest cumulative reward on the way to the goal.
+
+The critical part to make your reinforcement learning model work is the reward function. In general you design your reward function to act like an incentive plan.
+
+--------------------------------------------
+Reward function parameters for AWS DeepRacer
+--------------------------------------------
+
+In AWS DeepRacer, the reward function is a Python function which is given certain parameters that describe the current state and returns a numeric reward value.
+
+The parameters passed to the reward function describe various aspects of the state of the vehicle, such as its position and orientation on the track, its observed speed, steering angle and more.
+
+We will explore some of these parameters and how they describe the vehicle as it drives around the track:
+
+----------------------
+1. Position on track
+----------------------
+
+The parameters x and y describe the position of the vehicle in meters, measured from the lower-left corner of the environment.
+
+----------------------
+2. Heading
+----------------------
+
+The heading parameter describes the orientation of the vehicle in degrees, measured counter-clockwise from the X-axis of the coordinate system.
+
+----------------------
+3. Track width
+----------------------
+
+The track_width parameter is the width of the track in meters.
+
+----------------------
+4. Waypoints
+----------------------
+
+The waypoints parameter is an ordered list of milestones placed along the track center.
+
+Each waypoint in waypoints is a pair [x, y] of coordinates in meters, measured in the same coordinate system as the car's position.
+
+----------------------
+5. Distance from center line
+----------------------
+
+The distance_from_center parameter measures the displacement of the vehicle from the center of the track.
+
+The is_left_of_center parameter is a boolean describing whether the vehicle is to the left of the center line of the track.
+
+----------------------
+6. All wheels on track
+----------------------
+
+The all_wheels_on_track parameter is a boolean (true / false) which is true if all four wheels of the vehicle are inside the track borders, and false if any wheel is outside the track.
+
+----------------------
+7. Speed
+----------------------
+
+The speed parameter measures the observed speed of the vehicle, measured in meters per second.
+
+----------------------
+8. Steering angle
+----------------------
+
+The steering_angle parameter measures the steering angle of the vehicle, measured in degrees.
+
+This value is negative if the vehicle is steering right, and positive if the vehicle is steering left.
