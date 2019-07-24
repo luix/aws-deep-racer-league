@@ -22,4 +22,7 @@ def reward_function(params):
     # Calculate the direction in radius, arctan2(dy, dx), the result is (-pi, pi) in radians
     track_direction = math.atan2(next_point[1] - prev_point[1], next_point[0] - prev_point[0])
 
+    # Convert to degree
+    track_direction = math.degrees(track_direction)
+
     
