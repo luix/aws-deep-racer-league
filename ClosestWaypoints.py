@@ -32,4 +32,6 @@ def reward_function(params):
     DIRECTION_THRESHOLD = 10.0
     if direction_diff > DIRECTION_THRESHOLD:
         reward *= 0.5
-    
+
+    # Return reward as a float value
+    return float(reward)
