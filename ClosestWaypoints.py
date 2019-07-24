@@ -25,4 +25,7 @@ def reward_function(params):
     # Convert to degree
     track_direction = math.degrees(track_direction)
 
+    # Calculate the difference between the track direction and the heading direction of the car
+    direction_diff = abs(track_direction - heading)
+
     
