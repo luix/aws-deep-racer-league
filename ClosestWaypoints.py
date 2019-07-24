@@ -11,3 +11,8 @@ def reward_function(params):
     waypoints = params['waypoints']
     closest_waypoints = params['closest_waypoints']
     heading = params['heading']
+
+    # Initialize the reward with typical value
+    reward = 1.0
+
+    
