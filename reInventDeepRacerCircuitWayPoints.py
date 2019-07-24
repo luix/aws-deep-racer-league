@@ -714,7 +714,11 @@ waypoints = [
 
 for point in waypoints:
     plt.plot(point[0], point[1], 'k-', lw=0.5, alpha=0.5)
+    plt.plot(point[0] + 0.1, point[1] + 0.1, 'k-', lw=0.5, alpha=0.5)
+    plt.plot(point[0] - 0.1, point[1] - 0.1, 'k-', lw=0.5, alpha=0.5)
     plt.scatter(point[0], point[1])
+    plt.scatter(point[0] + 0.1, point[1] + 0.1)
+    plt.scatter(point[0] - 0.1, point[1] - 0.1)
 
 plt.grid(True)
 plt.tight_layout()
