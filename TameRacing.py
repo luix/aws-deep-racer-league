@@ -46,7 +46,7 @@ def reward_function(params):
     elif next_point >= 165 and next_point <= 171 and is_left_of_center:
         reward = speed**2
 
-    else
+    else:
         reward = speed
 
     print("reward: {0}".format(reward))
