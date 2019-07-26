@@ -712,11 +712,13 @@ waypoints = [
 ]
 ]
 
+num = 0
 for point in waypoints:
-    #plt.plot(point[0], point[1], 'k-', lw=0.5, alpha=0.5)
-    plt.scatter(point[0], point[1] - 0.1, c='r', marker='o', s=1, linewidths=0)
-    plt.scatter(point[0], point[1] + 0.1, c='b', marker='o', s=1, linewidths=0)
-    plt.scatter(point[0], point[1], c='k', marker='o', s=1, linewidths=0)
+    plt.annotate(num, (point[0], point[1]), size=7)
+    plt.scatter(point[0], point[1], marker='o', s=5, linewidths=0)
+    num+=1
+    #plt.scatter(point[0], point[1] - 0.33, c='r', marker='o', s=1, linewidths=0)
+    #plt.scatter(point[0], point[1] + 0.33, c='b', marker='o', s=1, linewidths=0)
 
 plt.grid(True)
 plt.tight_layout()
