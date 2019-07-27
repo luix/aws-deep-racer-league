@@ -1,0 +1,3 @@
+SIM_TRACE_LOG: episode, step, x-coordinate, y-coordinate,
+heading, steering_angle, speed, action_taken, reward, job_completed, all_wheels_on_track, progress,
+closest_waypoint_index, track_length, time.time()
