@@ -715,13 +715,17 @@ waypoints = [
 import math
 
 track_lenght = 0
+prev_x = 4.297569990158081
+prev_y = 0.5397330448031425
 print(track_lenght)
 num = 0
 for point in waypoints:
     plt.annotate(num, (point[0], point[1]), size=7)
     plt.scatter(point[0], point[1], marker='o', s=5, linewidths=0)
     num+=1
-    track_lenght += math.sqrt(point[0]**2 + point[1]**2)
+    track_lenght += math.sqrt((point[0]-prev_x)**2 + (point[1]-prev_y)**2)
+    prev_x = point[0]
+    prev_y = point[1]
     print(track_lenght)
     #plt.scatter(point[0], point[1] - 0.33, c='r', marker='o', s=1, linewidths=0)
     #plt.scatter(point[0], point[1] + 0.33, c='b', marker='o', s=1, linewidths=0)
