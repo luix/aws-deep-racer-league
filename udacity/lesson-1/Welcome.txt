@@ -1,0 +1,25 @@
+Welcome to the race!
+
+We’re excited to have you join us for this exciting new Scholarship Challenge! Here are some helpful details as you start the program:
+
+How the Scholarship Challenge works
+
+The race is on. Ready, set...learn!
+
+The lessons in this short course have been specially designed to prepare you to create, train, and fine-tune reinforcement learning models for submissions in the AWS DeepRacer League.
+
+While we recommend you take the time to go through these insightful lessons, course completion is not required to qualify for a Nanodegree scholarship. Instead, Nanodegree scholarships will be provided to students with the best racing scores in the August, September, and October AWS DeepRacer races, as well as to students who record the highest total point scores across all 3 months.
+
+If you have questions, we encourage you to ask directly in our student community.
+
+Join the community
+
+We’ve created a custom Slack workspace for your AWS DeepRacer classmates and you.
+
+In this exclusive student community, experts from the AWS DeepRacer team will host events discussing racetrack specifics and provide technical advice. What’s more, you can use the Slack workspace to collaborate with and get support from classmates or ask questions to our team of Community Managers.
+
+If you’re new to Slack, don’t worry. You’ll find it’s super easy to learn and that it’s a great way to communicate with other students.
+
+Join here!
+
+https://slackin.udacity.com/awsdeepracerchallenge
