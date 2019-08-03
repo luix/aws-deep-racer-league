@@ -1,0 +1,210 @@
+-------------------------------------------------
+Setting up DeepRacer Local Training on Windows 10
+-------------------------------------------------
+
+RayG - 20190712
+- Adapted from instructions found in:
+  - https://github.com/crr0004/deepracer/blob/master/README.md
+  - https://gist.github.com/joezen777/6657bbe2bd4add5d1cdbd44db9761edb
+- Assumption is that the starting point is a fresh Win10 installation
+
+-------------------------------------------------
+
+
+0. Pre-install Prep
+   - Make sure "Virtualization Technology" is enabled in BIOS
+     - Eg., under Advanced > CPU > Intel (VMX) Virtualization Technology" > Enabled
+   - Check that Win10 build is 16215 or later
+     - Settings > System > About
+
+1. Enable Windows Subsystem for Linux
+   - Open PowerShell as Administrator and run:
+     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+   - Reboot as prompted
+
+2. Open the Microsoft Store and search for Ubuntu 18.04 LTS > Get
+   - Upon installation, click Launch (a Console window will open)
+   - Enter new Unix username / password to create new account
+     - This user account is for the non-admin user that will be logged-in by default when launching Ubuntu
+     - When elevating a process using sudo, you will need to enter the above password
+
+3. Update and upgrade Ubuntu packages (henceforth we'll refer to Ubuntu as WSL)
+   - sudo apt update && sudo apt upgrade
+
+4. Prep for installing Docker in WSL
+   - sudo apt install apt-transport-https ca-certificates curl software-properties-common
+   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+   - sudo apt update
+   - apt-cache policy docker-ce
+
+5. Install Python and PIP in WSL
+   - sudo apt-get install -y python python-pip
+
+6. Install Docker in WSL
+   - sudo apt install docker-ce
+   - sudo usermod -aG docker $USER
+   - Exit terminal and reopen a new WSL terminal
+
+7. Install Docker Compose
+   - pip install --user docker-compose
+
+8. Install Docker Desktop for Windows in Win10
+   - https://hub.docker.com/editions/community/docker-ce-desktop-windows
+   - During setup, don't select the checkbox "use Windows containers instead of Linux containers"
+   - There will be at least 2 restarts after that
+
+9. Expose Docker daemon on localhost without TLS
+   - Docker settings > General > Enable "Expose daemon on tcp://localhost:2375 without TLS"
+
+10. Configure WSL to connect to Docker for Windows
+   - Open WSL Terminal
+   - echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc
+
+11. Verify that Docker works in WSL
+   - docker info
+   - docker-compose.exe --version
+
+12. Bind custom mount points in WSL to fix Docker for Windows and WSL differences
+   - sudo mkdir /c
+   - echo "sudo mount --bind /mnt/c /c" >> ~/.bashrc && source ~/.bashrc
+   - Repeat above commands for any drives that we want shared, such as d or e, etc.
+   - Exit and reopen WSL terminal (may now require password upon launching terminal due to the sudo command)
+
+13. Allow our user to bind a mount without root password in WSL
+   - sudo visudo
+   - Go to the bottom of the file and add this line (replace “xxx” with our username):
+     xxx ALL=(root) NOPASSWD: /bin/mount
+   - Save and exit
+   - Close and reopen WSL terminal to test that password is now not required
+
+14. Setup nameservers required to connect to Docker registry in Docker for Windows
+    - Go to Docker Icon in System Tray > Settings > Network > DNS Server
+    - Change from Automatic to Fixed: 8.8.8.8
+    - Wait for Docker to restart
+
+15. Do a sanity check in WSL:
+    - docker run hello-world
+
+16. Clone crr0004's DeepRacer repo
+    - Close and reopen WSL terminal
+    - git clone --recurse-submodules https://github.com/crr0004/deepracer.git
+
+17. Download and start up minio
+    - wget https://dl.min.io/server/minio/release/linux-amd64/minio
+    - chmod +x minio
+    - cd deepracer/rl_coach
+    - Edit env.sh
+      - Replace $(hostname -i) with actual IP address of machine, save and exit
+    - source ./env.sh
+    - cd ~
+    - ./minio server data
+
+18. Create bucket in minio Web UI
+    - From browser in Win10, go to http://127.0.0.1:9000/
+      - Default password is minio / miniokey
+    - Create a bucket named bucket through the minio Web UI ("+" button at bottom right)
+
+19. Setup default custom_files in WSL
+    - Open a new WSL terminal
+    - cd deepracer
+    - cp -rp custom_files ../data/bucket/
+    - Refresh the minio Web UI to check that "custom_files" folder has been created with 2 files
+
+20. Setup Sagemaker in WSL
+    - sudo apt-get install python3-venv
+    - cd ~/deepracer/rl_coach/
+    - source ./env.sh
+    - cd ..
+    - python3 -m venv sagemaker_venv
+    - source sagemaker_venv/bin/activate
+    - pip install -U sagemaker-python-sdk/ awscli pandas
+    - pip install urllib3==1.24.3
+    - pip install PyYAML==3.13
+    - pip install ipython
+    - pip install sagemaker-containers
+    - Check that version of python is 3.6.x: python --version
+    - sudo apt-get install python3.6-dev (or whatever python version it was from above)
+    - docker pull crr0004/sagemaker-rl-tensorflow:console
+    - mkdir -p ~/.sagemaker && cp config.yaml ~/.sagemaker
+    - mkdir ~/robo
+    - mkdir ~/robo/container
+    - cd ~/deepracer/rl_coach/
+    - Edit rl_deepracer_coach_robomaker.py, replace 127.0.0.1 with actual IP address of machine, save and exit
+
+21. Moment of truth for Sagemaker in WSL
+    - cd ~/deepracer/rl_coach/
+    - python rl_deepracer_coach_robomaker.py
+
+
+Unfortunately, the run Failed... with errors shown below, and I'm stuck here:
+
+Attaching to tmpsnowk779_algo-1-h3397_1
+algo-1-h3397_1  | $1 is train
+algo-1-h3397_1  | In train start.sh
+algo-1-h3397_1  | jq: error: Could not open file /opt/ml/input/config/resourceconfig.json: No such file or directory
+algo-1-h3397_1  | Current host is
+algo-1-h3397_1  | Compiling changehostname.c
+algo-1-h3397_1  | /changehostname.c: In function 'gethostname':
+algo-1-h3397_1  | /changehostname.c:15:21: error: expected expression before ';' token
+algo-1-h3397_1  |    const char *val = ;
+algo-1-h3397_1  |                      ^
+algo-1-h3397_1  | gcc: error: /changehostname.o: No such file or directory
+algo-1-h3397_1  | Done Compiling changehostname.c
+algo-1-h3397_1  | 18:C 13 Jul 2019 02:53:06.126 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+algo-1-h3397_1  | 18:C 13 Jul 2019 02:53:06.126 # Redis version=5.0.5, bits=64, commit=00000000, modified=0, pid=18, just started
+algo-1-h3397_1  | 18:C 13 Jul 2019 02:53:06.126 # Configuration loaded
+algo-1-h3397_1  | ERROR: ld.so: object '/libchangehostname.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+algo-1-h3397_1  |                 _._
+algo-1-h3397_1  |            _.-``__ ''-._
+algo-1-h3397_1  |       _.-``    `.  `_.  ''-._           Redis 5.0.5 (00000000/0) 64 bit
+algo-1-h3397_1  |   .-`` .-```.  ```\/    _.,_ ''-._
+algo-1-h3397_1  |  (    '      ,       .-`  | `,    )     Running in standalone mode
+algo-1-h3397_1  |  |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+algo-1-h3397_1  |  |    `-._   `._    /     _.-'    |     PID: 18
+algo-1-h3397_1  |   `-._    `-._  `-./  _.-'    _.-'
+algo-1-h3397_1  |  |`-._`-._    `-.__.-'    _.-'_.-'|
+algo-1-h3397_1  |  |    `-._`-._        _.-'_.-'    |           http://redis.io
+algo-1-h3397_1  |   `-._    `-._`-.__.-'_.-'    _.-'
+algo-1-h3397_1  |  |`-._`-._    `-.__.-'    _.-'_.-'|
+algo-1-h3397_1  |  |    `-._`-._        _.-'_.-'    |
+algo-1-h3397_1  |   `-._    `-._`-.__.-'_.-'    _.-'
+algo-1-h3397_1  |       `-._    `-.__.-'    _.-'
+algo-1-h3397_1  |           `-._        _.-'
+algo-1-h3397_1  |               `-.__.-'
+algo-1-h3397_1  |
+algo-1-h3397_1  | 18:M 13 Jul 2019 02:53:06.127 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+algo-1-h3397_1  | 18:M 13 Jul 2019 02:53:06.127 # Server initialized
+algo-1-h3397_1  | 18:M 13 Jul 2019 02:53:06.127 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+algo-1-h3397_1  | 18:M 13 Jul 2019 02:53:06.127 * Ready to accept connections
+algo-1-h3397_1  | 13/07/2019 02:53:06 passing arg to libvncserver: -rfbport
+algo-1-h3397_1  | 13/07/2019 02:53:06 passing arg to libvncserver: 5800
+algo-1-h3397_1  | 13/07/2019 02:53:06 x11vnc version: 0.9.13 lastmod: 2011-08-10  pid: 19
+algo-1-h3397_1  | 13/07/2019 02:53:06
+algo-1-h3397_1  | 13/07/2019 02:53:06 wait_for_client: WAIT:0
+algo-1-h3397_1  | 13/07/2019 02:53:06
+algo-1-h3397_1  | 13/07/2019 02:53:06 initialize_screen: fb_depth/fb_bpp/fb_Bpl 24/32/2560
+algo-1-h3397_1  | 13/07/2019 02:53:06
+algo-1-h3397_1  | 13/07/2019 02:53:06 Listening for VNC connections on TCP port 5800
+algo-1-h3397_1  | 13/07/2019 02:53:06 Listening for VNC connections on TCP6 port 5900
+algo-1-h3397_1  | 13/07/2019 02:53:06 Listening also on IPv6 port 5800 (socket 6)
+algo-1-h3397_1  | 13/07/2019 02:53:06
+algo-1-h3397_1  |
+algo-1-h3397_1  | The VNC desktop is:      b195a6e91d8b:5800
+algo-1-h3397_1  | 13/07/2019 02:53:06 possible alias:    b195a6e91d8b::5800
+algo-1-h3397_1  | PORT=5800
+algo-1-h3397_1  | Reporting training FAILURE
+algo-1-h3397_1  | framework error:
+algo-1-h3397_1  | Traceback (most recent call last):
+algo-1-h3397_1  |   File "/usr/local/lib/python3.6/dist-packages/sagemaker_containers/_trainer.py", line 47, in train
+algo-1-h3397_1  |     env = sagemaker_containers.training_env()
+algo-1-h3397_1  |   File "/usr/local/lib/python3.6/dist-packages/sagemaker_containers/__init__.py", line 26, in training_env
+algo-1-h3397_1  |     resource_config=_env.read_resource_config(),
+algo-1-h3397_1  |   File "/usr/local/lib/python3.6/dist-packages/sagemaker_containers/_env.py", line 237, in read_resource_config
+algo-1-h3397_1  |     return _read_json(resource_config_file_dir)
+algo-1-h3397_1  |   File "/usr/local/lib/python3.6/dist-packages/sagemaker_containers/_env.py", line 193, in _read_json
+algo-1-h3397_1  |     with open(path, 'r') as f:
+algo-1-h3397_1  | FileNotFoundError: [Errno 2] No such file or directory: '/opt/ml/input/config/resourceconfig.json'
+algo-1-h3397_1  |
+algo-1-h3397_1  | [Errno 2] No such file or directory: '/opt/ml/input/config/resourceconfig.json'
+
