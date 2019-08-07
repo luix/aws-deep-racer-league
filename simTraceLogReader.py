@@ -85,7 +85,7 @@ def convert_to_pandas(data, wpts=None):
     return df
 
 
-stream_name = '0'
+stream_name = '2'
 fname = 'shanghai-sudu-training/simulation-logs/sim-trace-log-%s.log' %stream_name
 #download_log(fname, stream_prefix=stream_name)
 data = load_data(fname)
