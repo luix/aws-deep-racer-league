@@ -15,3 +15,6 @@ https://github.com/crr0004/deepracer
 
 AWS Deepracer — How to build your own race track at home
 https://medium.com/@babu.b.srinivasan/aws-deepracer-how-to-build-your-own-race-track-at-home-9fa74fea2ca9
+
+WTF is Convergence? — AWS DeepRacer
+https://medium.com/@TheGeekiestOne/wtf-is-convergence-aws-deepracer-89ba78881381
