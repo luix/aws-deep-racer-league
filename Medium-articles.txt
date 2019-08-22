@@ -12,3 +12,6 @@ https://medium.com/@matthieurousseau_16015/what-is-the-aws-deepracer-league-and-
 
 Running DeepRacer through docker
 https://github.com/crr0004/deepracer
+
+AWS Deepracer — How to build your own race track at home
+https://medium.com/@babu.b.srinivasan/aws-deepracer-how-to-build-your-own-race-track-at-home-9fa74fea2ca9
