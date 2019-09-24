@@ -5,6 +5,7 @@ def reward_function(params):
     Pocoloco steps:
 
     1. Obtain track waypoints.
+    2. Calculate optimal waypoints.
     '''
 
     import math
