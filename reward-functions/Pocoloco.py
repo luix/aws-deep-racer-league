@@ -3,6 +3,8 @@ def reward_function(params):
     #################################################################################
     '''
     Pocoloco steps:
+
+    1. Obtain track waypoints.
     '''
 
     import math
