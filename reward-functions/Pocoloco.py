@@ -8,6 +8,8 @@ def reward_function(params):
     2. Calculate optimal waypoints.
     3. Calculate maximum speed for next steps in the track.
     4. Calculate steering angle (left or right) based on waypoints ahead.
+    5. Give more reward for a higher speed.
+
     '''
 
     import math
