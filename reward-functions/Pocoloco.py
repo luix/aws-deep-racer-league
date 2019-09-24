@@ -2,10 +2,11 @@ def reward_function(params):
 
     #################################################################################
     '''
-    Pocoloco steps:
+    Pocoloco reward function steps:
 
     1. Obtain track waypoints.
     2. Calculate optimal waypoints.
+    3. Calculate maximum speed for next steps.
     '''
 
     import math
