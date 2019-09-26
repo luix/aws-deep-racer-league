@@ -14,13 +14,19 @@ def reward_function(params):
     import math
 
     # Read input variables
-    waypoints = params['waypoints']
+    center_waypoints = params['waypoints']
     closest_waypoints = params['closest_waypoints']
     heading = params['heading']
     speed = params['speed']
+    track_width = params['track_width']
+
+    distance_from_center = params['distance_from_center']
 
     # Initialize the reward with typical value
     reward = 1.0
+
+    # Calculate optimal waypoints
+    
 
     # Calculate the direction of the center line based on the closest waypoints
     next_point = waypoints[closest_waypoints[1]]
