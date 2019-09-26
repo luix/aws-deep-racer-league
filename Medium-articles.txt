@@ -18,3 +18,9 @@ https://medium.com/@babu.b.srinivasan/aws-deepracer-how-to-build-your-own-race-t
 
 WTF is Convergence? — AWS DeepRacer
 https://medium.com/@TheGeekiestOne/wtf-is-convergence-aws-deepracer-89ba78881381
+
+Visualizing AWS DeepRacer Waypoints
+https://medium.com/@autonomousracecarclub/visualizing-aws-deepracer-waypoints-9b94e6311b7a
+
+Our AWS DeepRacer Wiki
+https://medium.com/@autonomousracecarclub/our-aws-deepracer-wiki-fdd207302282
