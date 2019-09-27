@@ -39,7 +39,7 @@ def reward_function(params):
 
     # Penalize reward if the agent is steering too much
     if steering > ABS_STEERING_TRESHOLD:
-        reward *= 0.8
+        reward *= 0.5
 
     # Always return a float value
     return float(reward)
