@@ -17,7 +17,8 @@ print("Number of waypoints = " + str(waypoints.shape[0]))
 # Plot waypoints
 for i, point in enumerate(waypoints):
     waypoint = (point[2], point[3])
-    plt.scatter(waypoint[0], waypoint[1])
+    #plt.scatter(waypoint[0], waypoint[1])
+    plt.scatter(waypoint[0], waypoint[1], color='green', marker='o', s=5, linewidths=0)
     print("Waypoint " + str(i) + ": " + str(waypoint))
 
 plt.show
