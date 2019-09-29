@@ -24,3 +24,11 @@ https://medium.com/@autonomousracecarclub/visualizing-aws-deepracer-waypoints-9b
 
 Our AWS DeepRacer Wiki
 https://medium.com/@autonomousracecarclub/our-aws-deepracer-wiki-fdd207302282
+
+Speed Dreams
+http://www.speed-dreams.org/
+https://en.wikipedia.org/wiki/Speed_Dreams
+
+TORCS (The Open Racing Car Simulator)
+https://en.wikipedia.org/wiki/TORCS
+http://torcs.sourceforge.net/index.php
