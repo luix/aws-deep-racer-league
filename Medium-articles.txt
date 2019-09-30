@@ -25,6 +25,9 @@ https://medium.com/@autonomousracecarclub/visualizing-aws-deepracer-waypoints-9b
 Our AWS DeepRacer Wiki
 https://medium.com/@autonomousracecarclub/our-aws-deepracer-wiki-fdd207302282
 
+Bézier Curves for your Games: A Tutorial
+http://devmag.org.za/2011/04/05/bzier-curves-a-tutorial/
+
 Speed Dreams
 http://www.speed-dreams.org/
 https://en.wikipedia.org/wiki/Speed_Dreams
