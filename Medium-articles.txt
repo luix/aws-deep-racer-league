@@ -47,3 +47,6 @@ http://torcs.sourceforge.net/index.php
 
 Bézier curve fitting with SciPy
 https://stackoverflow.com/questions/12643079/b%C3%A9zier-curve-fitting-with-scipy
+
+How to calculate racing lines automatically
+http://phungdinhthang.com/2016/12/16/calculate-racing-lines-automatically/?i=2
