@@ -31,6 +31,9 @@ http://devmag.org.za/2011/04/05/bzier-curves-a-tutorial/
 Curved Paths
 https://www.redblobgames.com/articles/curved-paths/
 
+B-spline
+https://en.wikipedia.org/wiki/B-spline
+
 Speed Dreams
 http://www.speed-dreams.org/
 https://en.wikipedia.org/wiki/Speed_Dreams
