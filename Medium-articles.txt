@@ -36,6 +36,11 @@ https://en.wikipedia.org/wiki/B-spline
 
 Helper for Bézier Curves, Triangles, and Higher Order Objects
 https://pypi.org/project/bezier/
+https://bezier.readthedocs.io/en/latest/python/reference/bezier.curve.html
+https://nathanrooy.github.io/posts/2016-09-14/airfoil-manipulation-via-bezier-curves-with-python/
+
+Bézier Curve
+https://matplotlib.org/gallery/api/quad_bezier.html
 
 Animated Bézier Curves
 https://www.jasondavies.com/animated-bezier/
