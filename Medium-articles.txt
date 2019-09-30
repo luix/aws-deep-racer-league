@@ -45,6 +45,11 @@ TORCS (The Open Racing Car Simulator)
 https://en.wikipedia.org/wiki/TORCS
 http://torcs.sourceforge.net/index.php
 
+Real-time Trajectory Optimizationfor Autonomous Vehicle Racing
+https://publications.rwth-aachen.de/record/710049/files/main.pdf
+https://github.com/janismac/RacingTrajectoryOptimization
+https://janismac.github.io/Portfolio/projects/#portfolio-11
+
 Bézier curve fitting with SciPy
 https://stackoverflow.com/questions/12643079/b%C3%A9zier-curve-fitting-with-scipy
 
