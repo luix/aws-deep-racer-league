@@ -34,6 +34,9 @@ https://www.redblobgames.com/articles/curved-paths/
 B-spline
 https://en.wikipedia.org/wiki/B-spline
 
+Animated Bézier Curves
+https://www.jasondavies.com/animated-bezier/
+
 Speed Dreams
 http://www.speed-dreams.org/
 https://en.wikipedia.org/wiki/Speed_Dreams
