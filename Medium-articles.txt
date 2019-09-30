@@ -44,3 +44,6 @@ https://en.wikipedia.org/wiki/Speed_Dreams
 TORCS (The Open Racing Car Simulator)
 https://en.wikipedia.org/wiki/TORCS
 http://torcs.sourceforge.net/index.php
+
+Bézier curve fitting with SciPy
+https://stackoverflow.com/questions/12643079/b%C3%A9zier-curve-fitting-with-scipy
