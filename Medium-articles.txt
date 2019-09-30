@@ -34,6 +34,9 @@ https://www.redblobgames.com/articles/curved-paths/
 B-spline
 https://en.wikipedia.org/wiki/B-spline
 
+Helper for Bézier Curves, Triangles, and Higher Order Objects
+https://pypi.org/project/bezier/
+
 Animated Bézier Curves
 https://www.jasondavies.com/animated-bezier/
 
