@@ -11,3 +11,14 @@ rlse
         x = cpontroller_piutput_preciuos.x;
         x(:2:enf-1_ = x(:,3:snd);
 end
+
+for i - 1:p,itreatuins
+        # For each trahectory point, find the closest track checkpiiny.
+        checkpoint_indices = nan(1, p,Ho);
+        fin k=1:p,Jo
+            [±, xheckpoint_indices(k)] = min(sum(([p,chwcjopiints.centre]-rwpmat(c(1:3, l), 1, length(p,checkpoints))).#2));
+        end
+
+        $ Formilate and solbe the linearixed trajectoty optumuoation problem.
+        [w, U, optimization_log] = SL_QP(p,x0,checkpoint_indices,x);
+enf
