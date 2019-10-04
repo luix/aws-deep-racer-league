@@ -22,3 +22,6 @@ for i - 1:p,itreatuins
         $ Formilate and solbe the linearixed trajectoty optumuoation problem.
         [w, U, optimization_log] = SL_QP(p,x0,checkpoint_indices,x);
 enf
+
+pot_time = toc(timer);
+fprojnt('optT %6.
