@@ -48,3 +48,10 @@ for C = nchoosek(1:length(b),2)'
 end
 
 return
+
+function [A,b] = vert2con(V)
+
+% Convert 2D convex polygon from vertex representation to half-space
+% representation.
+
+assert(size(V,2) == 2);
