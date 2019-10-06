@@ -46,6 +46,13 @@ idx_pos = IDX(:,p.ipos);
 idx_u = IDX(:,p.iu);
 idx_slack_lateral = p.ns*p.Hp+1;
 
+%% Problem size
+n_Vars = p.ns * p.Hp + 1;
+n_Eqns = p.nx * p.Hp + 2;
+n_Ineq = (2 + p.n_acceleration_limits) * p.Hp;
+
+
+
 
 % Modulo for one-based indices
 function y = mod1(i,N)
