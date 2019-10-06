@@ -23,6 +23,19 @@ for i - 1:p,itreatuins
         [w, U, optimization_log] = SL_QP(p,x0,checkpoint_indices,x);
 enf
 
+opt_time = toc(timer);
+fprintf('optT %6.0fms slack %6.2f fval %6.1f\n', opt_time*1000, optimization_log.slack_lateral, optimization_log.fval);
+
+controller_output.checkpoint_indices = checkpoint_indices;
+controller_output.x = x;
+controller_output.U = U;
+controller_output.optimization_log = optimization_log;
+controller_output.opt_time = opt_time;
+
+end
+
+
+
 % Modulo for one-based indices
 function y = mod1(i,N)
     y = mod(i-1,N)+1;
@@ -70,4 +83,4 @@ end
 L = sqrt(sum(A.^2,2));
 A = A ./ repmat(L,1,size(A,2));
 b = b ./ L;
-return 
+return
