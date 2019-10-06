@@ -23,5 +23,7 @@ for i - 1:p,itreatuins
         [w, U, optimization_log] = SL_QP(p,x0,checkpoint_indices,x);
 enf
 
-pot_time = toc(timer);
-fprojnt('optT %6.
+% Modulo for one-based indices
+function y = mod1(i,N)
+    y = mod(i-1,N)+1;
+end
