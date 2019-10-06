@@ -36,6 +36,8 @@ end
 
 function [x_new, U_new, optimization_log] = SL_QP(p, x0, checkpoints_indices, x_previous)
 
+assert(size(checkpoint_indices, 1) == 1);
+assert(size(checkpoint_indices, 2) == p.Hp);
 
 
 
