@@ -51,6 +51,15 @@ n_Vars = p.ns * p.Hp + 1;
 n_Eqns = p.nx * p.Hp + 2;
 n_Ineq = (2 + p.n_acceleration_limits) * p.Hp;
 
+lin_objective = zeros(n_Vars,1);
+quad_objective = zeros(n_Vars,n_Vars);
+Aeq = zeros(n_Eqns,n_Vars)
+beq = zeros(n_Eqns,1);
+Aineq = zeros(n_Ineq,n_Vars);
+bineq = zeros(n_Ineq,1);
+lb = -inf(n_Vars,1);
+ub =  inf(n_Vars,1);
+
 
 
 
