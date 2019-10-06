@@ -27,3 +27,8 @@ enf
 function y = mod1(i,N)
     y = mod(i-1,N)+1;
 end
+
+function [V] = con2vert(A,b)
+
+% Convert 2D convex polygon from half-space representation to vertex
+% representation.
