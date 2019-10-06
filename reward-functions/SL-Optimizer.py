@@ -34,6 +34,10 @@ controller_output.opt_time = opt_time;
 
 end
 
+function [x_new, U_new, optimization_log] = SL_QP(p, x0, checkpoints_indices, x_previous)
+
+
+
 
 
 % Modulo for one-based indices
