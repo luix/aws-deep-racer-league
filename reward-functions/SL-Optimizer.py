@@ -39,7 +39,12 @@ function [x_new, U_new, optimization_log] = SL_QP(p, x0, checkpoints_indices, x_
 assert(size(checkpoint_indices, 1) == 1);
 assert(size(checkpoint_indices, 2) == p.Hp);
 
-
+% Index mapping
+IDX = reshape((1:p.ns*p.Hp),p.ns,p.Hp)';
+idx_x = IDX(:,p.ix);
+idx_pos = IDX(:,p.ipos);
+idx_u = IDX(:,p.iu);
+idx_slack_lateral = p.ns*p.Hp+1;
 
 
 % Modulo for one-based indices
