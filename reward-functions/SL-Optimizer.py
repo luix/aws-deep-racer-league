@@ -60,7 +60,14 @@ bineq = zeros(n_Ineq,1);
 lb = -inf(n_Vars,1);
 ub =  inf(n_Vars,1);
 
+% Equations
+rows = 0
 
+% Linear model: x1 = Ax + Bu
+dt = p.dt;
+ddt = dt * dt / 2;
+Ad = [1 0 dt 0; 0 1 0 dt; 0 0 1 0; 0 0 0 1];
+Bd = [ddt 0; 0 ddt; dt 0; 0 dt];
 
 
 % Modulo for one-based indices
