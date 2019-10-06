@@ -65,3 +65,9 @@ for i = 1:(length(K)-1)
     b(i) = x0*n;
     A(i,:) = n';
 end
+
+% normalize
+L = sqrt(sum(A.^2,2));
+A = A ./ repmat(L,1,size(A,2));
+b = b ./ L;
+return 
