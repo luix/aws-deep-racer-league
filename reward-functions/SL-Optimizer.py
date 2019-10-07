@@ -63,15 +63,17 @@ ub =  inf(n_Vars,1);
 %% Equations
 rows = 0;
 
-
-
 % Linear model: x1 = Ax + Bu
 dt = p.dt;
 ddt = dt * dt / 2;
 Ad = [1 0 dt 0; 0 1 0 dt; 0 0 1 0; 0 0 0 1];
 Bd = [ddt 0; 0 ddt; dt 0; 0 dt];
 
-rows =
+rows = rows(end) + (1:p.nx)
+Aeq(rows, idx_x(1,:)) = eye(p.nx);
+Aeq(rows, idx_u(1,:)) = -Bd;
+beq(rows) = Ad * x0;
+
 
 
 
