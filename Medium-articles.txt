@@ -66,3 +66,6 @@ http://phungdinhthang.com/2016/12/16/calculate-racing-lines-automatically/?i=2
 
 Greedy Algorithm
 https://en.wikipedia.org/wiki/Greedy_algorithm
+
+Basics of Greedy Algorithms
+https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/tutorial/
