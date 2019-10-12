@@ -69,3 +69,6 @@ https://en.wikipedia.org/wiki/Greedy_algorithm
 
 Basics of Greedy Algorithms
 https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/tutorial/
+
+scipy.interpolate.BSpline
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.BSpline.html
