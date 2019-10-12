@@ -11,3 +11,6 @@ crv.ctrlpts = [[1, 0, 0], [1, 1, 0], [0, 1, 0]]
 
 # Set knot vector
 crv.knotvector = [0, 0, 0, 1, 1, 1]
+
+# Import Matplotlib visualization module
+from geomdl.visualization import VisMPL
