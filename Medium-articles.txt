@@ -87,3 +87,6 @@ https://www.analyticsvidhya.com/blog/2018/03/introduction-regression-splines-pyt
 
 B spline curve generation in Python
 https://computergraphics.stackexchange.com/questions/7627/b-spline-curve-generation-in-python
+
+NURBS-Python v5.x Documentation
+https://nurbs-python.readthedocs.io/en/latest/index.html
