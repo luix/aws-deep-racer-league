@@ -72,3 +72,6 @@ https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorith
 
 scipy.interpolate.BSpline
 https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.BSpline.html
+
+B-Spline Geometry
+https://nurbs-python.readthedocs.io/en/latest/module_bspline.html
