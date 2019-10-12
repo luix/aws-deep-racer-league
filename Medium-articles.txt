@@ -84,3 +84,6 @@ https://github.com/kawache/Python-B-spline-examples
 
 Introduction to Regression Splines (with Python codes)
 https://www.analyticsvidhya.com/blog/2018/03/introduction-regression-splines-python-codes/
+
+B spline curve generation in Python
+https://computergraphics.stackexchange.com/questions/7627/b-spline-curve-generation-in-python
