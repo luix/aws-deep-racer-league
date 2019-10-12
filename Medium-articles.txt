@@ -75,3 +75,6 @@ https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.BSpline.h
 
 B-Spline Geometry
 https://nurbs-python.readthedocs.io/en/latest/module_bspline.html
+
+Scientific Programming with B-Splines
+https://bsplines.org/scientific-programming-with-b-splines/
