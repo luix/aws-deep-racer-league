@@ -8,3 +8,6 @@ crv.degree = 2
 
 # Set control points
 crv.ctrlpts = [[1, 0, 0], [1, 1, 0], [0, 1, 0]]
+
+# Set knot vector
+crv.knotvector = [0, 0, 0, 1, 1, 1]
