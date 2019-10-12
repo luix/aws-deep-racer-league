@@ -78,3 +78,6 @@ https://nurbs-python.readthedocs.io/en/latest/module_bspline.html
 
 Scientific Programming with B-Splines
 https://bsplines.org/scientific-programming-with-b-splines/
+
+Python-B-spline-examples
+https://github.com/kawache/Python-B-spline-examples
