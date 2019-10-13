@@ -14,3 +14,6 @@ crv.knotvector = [0, 0, 0, 1, 1, 1]
 
 # Import Matplotlib visualization module
 from geomdl.visualization import VisMPL
+
+# Set the visualization component of the curve
+crv.vis = VisMPL.VisCurve3D
