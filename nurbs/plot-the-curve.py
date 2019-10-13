@@ -17,3 +17,6 @@ from geomdl.visualization import VisMPL
 
 # Set the visualization component of the curve
 crv.vis = VisMPL.VisCurve3D
+
+# Plot the curve
+crv.render()
