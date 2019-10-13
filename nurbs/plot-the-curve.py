@@ -1,4 +1,5 @@
 from geomdl import BSpline
+from geomdl import knotvector
 
 # Create the curve instance
 crv = BSpline.Curve()
@@ -9,8 +10,8 @@ crv.degree = 2
 # Set control points
 crv.ctrlpts = [[1, 0, 0], [1, 1, 0], [0, 1, 0]]
 
-# Set knot vector
-crv.knotvector = [0, 0, 0, 1, 1, 1]
+# Generate a uniform knot vector
+crv.knotvector = knotvector.generate(crv.degree, crv.ctrlpts_size)
 
 # Import Matplotlib visualization module
 from geomdl.visualization import VisMPL
