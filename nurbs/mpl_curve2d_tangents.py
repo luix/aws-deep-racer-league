@@ -94,14 +94,14 @@ plt.figure(figsize=(10.67, 8), dpi=96)
 yaxis = plt.plot((-1, 25), (0, 0), "k-")   
 
 # Control points polygon 
-cppolygon, = plt.plot(ctrlpts[:, 0], ctrlpts[:, 1], color='black', linestyle='-.', marker='o', markersize='3')  
+cppolygon, = plt.plot(ctrlpts[:, 0], ctrlpts[:, 1], color='sandybrown', linestyle='-.', marker='o', markersize='3', zorder=0)  
 
 # Evaluated curve points
-curveplt, = plt.plot(curvepts[:, 0], curvepts[:, 1], color='green', linestyle='-')
+curveplt, = plt.plot(curvepts[:, 0], curvepts[:, 1], color='lawngreen', linestyle='-', zorder=0)
 
 # Tangents
-tanline = plt.quiver(ctarr[:, 0, 0], ctarr[:, 0, 1], ctarr[:, 1, 0], ctarr[:, 1, 1], color='blue', angles='xy', scale_units='xy', scale=1, width=0.003)
-tanlinekey = plt.quiverkey(tanline, 23.75, -14.5, 35, "Tangent Vectors", coordinates='data', labelpos='W')
+tanline = plt.quiver(ctarr[:, 0, 0], ctarr[:, 0, 1], ctarr[:, 1, 0], ctarr[:, 1, 1], color='red', angles='xy', scale_units='xy', scale=1, width=0.003, zorder=1)
+tanlinekey = plt.quiverkey(tanline, 23.75, -14.5, 35, "Tangent Vectors", coordinates='data', labelpos='W', zorder=1)
 
 # Add legends
 plt.legend([cppolygon, curveplt], ["Control Points", "Evaluated Curve"])
