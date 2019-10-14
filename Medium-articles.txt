@@ -93,3 +93,6 @@ https://nurbs-python.readthedocs.io/en/latest/index.html
 
 Smoother Signatures 
 https://medium.com/square-corner-blog/smoother-signatures-be64515adb33
+
+Interpolation (scipy.interpolate)
+https://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html
