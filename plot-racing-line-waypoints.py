@@ -19,7 +19,7 @@ center_line_waypoints = [[4.609185457229614,1.643046498298645],[4.50431919097900
 
 # Interpolate racing lane waypoints
 racing_line_waypoints = [
-    [3.09133, 2.31021],
+    [3.02972, 2.39258],
     [1.37140, 2.19255],
     [1.02819, 0.811976],
     [2.17091, -0.407792],
@@ -28,8 +28,12 @@ racing_line_waypoints = [
     [6.87052, -2.74535],
     [8.63335, -1.91387],
     [8.43055, -0.556831],
-    [6.64431, 0.588418],
-    [3.09133, 2.31021]]
+    [7.82420, -0.282285],
+    [6.77468, 0.192287],
+    [4.49962, 1.66699],
+    #[6.64431, 0.588418],
+    [3.02972, 2.39258]]
+    #[3.09133, 2.31021]]
 
 points = np.array(racing_line_waypoints)
 x = points[:,0]
@@ -76,7 +80,7 @@ for i, point in enumerate(waypoints):
     print("Waypoint " + str(i) + ": " + str(waypoint_center_line))
 
 
-plt.plot(x, y, 'x', out[0], out[1], x, y, 'b')
+plt.plot(x, y, 'x', out[0], out[1])
 
 for point in center_line_waypoints:
     plt.scatter(point[0], point[1], c='w', marker='.', s=4, linewidths=0)
