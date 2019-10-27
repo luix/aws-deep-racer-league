@@ -52,12 +52,22 @@ for point in waypoints:
     prev_x = point[0]
     prev_y = point[1]
     # print(track_lenght)
-    plt.scatter(point[0], point[1] - 0.33, c='r', marker='o', s=1, linewidths=0)
-    plt.scatter(point[0], point[1] + 0.33, c='b', marker='o', s=1, linewidths=0)
+    #plt.scatter(point[0], point[1] - 0.33, c='r', marker='o', s=1, linewidths=0)
+    #plt.scatter(point[0], point[1] + 0.33, c='b', marker='o', s=1, linewidths=0)
 
 print(track_lenght)
 
-plt.plot(x, y, 'x', out[0], out[1], x, y, 'b')
+print('out[0].size', out[0].size)
+print('out[0].shape', out[0].shape)
+print('out[1].size', out[1].size)
+print('out[1].shape', out[1].shape)
+
+plt.plot(x, y, 'x', out[0], out[1], 'o', x, y, 'b')
+
+
+for xo in out[0], yo in out[1]:
+    print('[',xo,',',yo,'],')
+
 
 plt.grid(True)
 plt.tight_layout()
