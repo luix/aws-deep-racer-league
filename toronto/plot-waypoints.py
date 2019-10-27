@@ -39,10 +39,10 @@ prev_y = 0.5397330448031425
 # print(track_lenght)
 num = 0
 
-for point in waypoints:
-    plt.scatter(point[0], point[1], c='g', marker='o', s=1, linewidths=0)
+# for point in waypoints:
+#     plt.scatter(point[0], point[1], c='g', marker='o', s=1, linewidths=0)
     
-plt.show()
+# plt.show()
 
 for point in waypoints:
     plt.annotate(num, (point[0], point[1]), size=7)
