@@ -65,8 +65,8 @@ print('out[1].shape', out[1].shape)
 plt.plot(x, y, 'x', out[0], out[1], 'o', x, y, 'b')
 
 
-for xo in out[0], yo in out[1]:
-    print('[',xo,',',yo,'],')
+for i in range(101):
+    print('[',out[0][i],',',out[1][i],'],')
 
 
 plt.grid(True)
