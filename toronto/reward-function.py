@@ -90,6 +90,8 @@ def reward_function(params):
             reward += speed
         reward += progress
 
+    print('reward:',reward,',speed:',speed,',dist:',min_dist,',x:',x,',y:',y,',top:',top,',d:',d,',progress:',progress)
+
     # Always return a float value
     return float(reward)
 
