@@ -121,4 +121,27 @@ for i, point in enumerate(waypoints):
     print("Waypoint " + str(i) + ": " + str(waypoint_center_line))
 
 
+racing_line_waypoints = [
+    [4.62055 , 1.61558], 
+    [3.03053 , 2.36438], 
+    [1.38568 , 2.22003], 
+    [1.04757 , 0.767549], 
+    [2.12586 , -0.423305], 
+    [5.01349 , -2.30882], 
+    [7.09697 , -1.56905], 
+    [7.04214 , 0.298425], 
+    [6.29282 , 0.975046], 
+    [4.62055 , 1.61558]]
+
+points = np.array(racing_line_waypoints)
+x = points[:,0]
+y = points[:,1] 
+
+tck, u = interpolate.splprep([x, y], s=0)
+unew = np.arange(0, 1.01, 0.01)
+out = interpolate.splev(unew, tck)
+
+plt.plot(x, y, 'x', out[0], out[1])
+
+
 plt.show()
