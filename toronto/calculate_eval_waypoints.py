@@ -56,5 +56,13 @@ plt.plot(x, y, 'x', out[0], out[1])
 # for point in center_line_waypoints:
 #     plt.scatter(point[0], point[1], c='w', marker='.', s=4, linewidths=0)
 
+print('out[0].size', out[0].size)
+print('out[0].shape', out[0].shape)
+print('out[1].size', out[1].size)
+print('out[1].shape', out[1].shape)
+
+for i in range(101):
+    print('[',out[0][i],',',out[1][i],'],')
+
 plt.show()
 
