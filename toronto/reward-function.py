@@ -13,6 +13,8 @@ def reward_function(params):
     '''
     import math
 
+    print(params)
+
     # Read input parameters
     x = params['x']
     y = params['y']
