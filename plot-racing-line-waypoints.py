@@ -140,7 +140,7 @@ x = points[:,0]
 y = points[:,1] 
 
 tck, u = interpolate.splprep([x, y], s=0)
-unew = np.arange(0, 1.01, 0.01)
+unew = np.arange(0, 2.02, 0.02)
 out = interpolate.splev(unew, tck)
 
 plt.plot(x, y, 'x', out[0], out[1])
